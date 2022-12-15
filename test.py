@@ -27,8 +27,8 @@ class Tests(unittest.TestCase):
     def test_3_isAddArticlePossible(self):
         app.addArticle(13,10)
         app.addArticle(12,12)
-        self.assertEqual(app.articles,[[13,10],[12,12]])
-        
+        self.assertEqual(app.articles,[{"price":13,"quantity":10},{"price":12,"quantity":12}])
+
     def test_7_countryCodeForTVA(self):
         self.assertEqual(app.TVAcodeFromCountryCode("BE"),"BE-TVA")
         self.assertEqual(app.TVAcodeFromCountryCode("EN"),"EN-TVA")

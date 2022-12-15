@@ -51,8 +51,7 @@ def calculate_total(lines):
     return sum
 
 def addArticle(price,qty):
-
-    articles.append([price,qty])
+    articles.append({"price":price,"quantity":qty})
 
 if __name__ == '__main__':
     helloWorld()
