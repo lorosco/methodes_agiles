@@ -1,4 +1,4 @@
-reductions = []
+reductions = [3,5,7,10,15]
 articles = []
 
 def helloWorld():
@@ -26,21 +26,12 @@ def displayTVAcodes(listCodes):
 for i in displayTVAcodes(['AAA', 'BBB', 'CCC']):
     print(i)
 
-#Data format [1,2,3,4,5...]
-def setReductions(reducts):
-    print(reducts)
-    reductions = reducts
-    print(reductions)
-
 def getReductions():
-    print(reductions)
     return reductions
 
 def addArticle(price,qty):
-    articles.append([].append(price,qty))
 
-def getArticles():
-    return articles
+    articles.append([price,qty])
 
 if __name__ == '__main__':
     helloWorld()

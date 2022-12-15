@@ -15,16 +15,14 @@ class Tests(unittest.TestCase):
 
     def test_displayTVAcodes(self):
         TVAcodes = ['AAA','BBB', 'CCC']
-        self.assertEquals(['AAA', 'BBB', 'CCC'], app.displayTVAcodes(TVAcodes))
+        self.assertEqual(['AAA', 'BBB', 'CCC'], app.displayTVAcodes(TVAcodes))
 
-    #def test_11_isAllReductionsCorrectlySet(self):
-    #    reductions = [3,5,7,10,15]
-    #    app.setReductions(reductions)
-    #    self.assertEqual(app.getReductions(),reductions)
+    def test_11_isAllReductionsCorrectlySet(self):
+        self.assertEqual(app.getReductions(),[3,5,7,10,15])
 
-    #def test_3_isAddArticlePossible(self):
-    #    app.addArticle(13,10)
-    #    app.addArticle(12,12)
-    #    self.assertEqual(app.getArticles(),[[13,10],[12,12]])
+    def test_3_isAddArticlePossible(self):
+        app.addArticle(13,10)
+        app.addArticle(12,12)
+        self.assertEqual(app.articles,[[13,10],[12,12]])
 
 unittest.main()
