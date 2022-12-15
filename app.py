@@ -1,7 +1,5 @@
 reductions = []
-
-from sympy import true
-
+articles = []
 
 def helloWorld():
     return "Hello, World!"
@@ -30,11 +28,21 @@ for i in displayTVAcodes(['AAA', 'BBB', 'CCC']):
 
 #Data format [1,2,3,4,5...]
 def setReductions(reducts):
+    print(reducts)
     reductions = reducts
+    print(reductions)
 
 def getReductions():
+    print(reductions)
     return reductions
 
-helloWorld()
-print(calculate_sub_total(askUserToAddPriceAndQuantity()))
-print(helloWorld())
+def addArticle(price,qty):
+    articles.append([].append(price,qty))
+
+def getArticles():
+    return articles
+
+if __name__ == '__main__':
+    helloWorld()
+    print(calculate_sub_total(askUserToAddPriceAndQuantity()))
+    print(helloWorld())
