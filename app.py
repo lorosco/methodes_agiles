@@ -1,5 +1,6 @@
 reductions = []
 articles = []
+countryCodeForTva = {'FR': 'FR-TVA', 'EN': 'EN-TVA', 'BE': 'BE-TVA', 'IT': 'IT-TVA'}
 
 def helloWorld():
     return "Hello, World!"
@@ -26,6 +27,14 @@ def displayTVAcodes(listCodes):
 for i in displayTVAcodes(['AAA', 'BBB', 'CCC']):
     print(i)
 
+def TVAcodeFromCountryCode(countryCode = "None"):
+    print(countryCode)
+    if(countryCode == "None"):
+        print("Enter country code (example: FR, EN, BE, IT...)")
+        countryCode = input()
+    result = countryCodeForTva[countryCode]
+    return result
+
 #Data format [1,2,3,4,5...]
 def setReductions(reducts):
     print(reducts)
@@ -46,3 +55,5 @@ if __name__ == '__main__':
     helloWorld()
     print(calculate_sub_total(askUserToAddPriceAndQuantity()))
     print(helloWorld())
+    print(TVAcodeFromCountryCode())
+
