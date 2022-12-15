@@ -35,6 +35,13 @@ def setReductions(reducts):
 def getReductions():
     return reductions
 
+def calculate_total(lines):
+    sum = 0
+    for i in lines:
+        sum += calculate_sub_total(i)
+    return sum
+
+
 helloWorld()
 print(calculate_sub_total(askUserToAddPriceAndQuantity()))
 print(helloWorld())
