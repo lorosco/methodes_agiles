@@ -51,10 +51,6 @@ def calculate_total(lines):
         sum += calculate_sub_total(i)
     return sum
 
-
-helloWorld()
-print(calculate_sub_total(askUserToAddPriceAndQuantity()))
-print(helloWorld())
 def addArticle(price,qty):
     articles.append([].append(price,qty))
 
