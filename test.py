@@ -11,4 +11,9 @@ class Tests(unittest.TestCase):
         TVAcodes = ['AAA','BBB', 'CCC']
         self.assertEquals(['AAA', 'BBB', 'CCC'], app.displayTVAcodes(TVAcodes))
 
+    def test_11_isAllReductionsCorrectlySet(self):
+        reductions = [3,5,7,10,15]
+        app.setReductions(reductions)
+        self.assertEqual(app.getReductions(),reductions)
+
 unittest.main()
