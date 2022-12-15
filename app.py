@@ -1,9 +1,10 @@
+reductions = []
 
 from sympy import true
 
 
 def helloWorld():
-    print("Hello, World!")
+    return "Hello, World!"
 
 def calculate_sub_total(line):
     return line['price'] * line ['quantity']
@@ -21,7 +22,19 @@ def askUserToAddPriceAndQuantity():
             break
     return {'price': float(price), 'quantity': float(quantity)}
 
+def displayTVAcodes(listCodes):
+    return listCodes
 
+for i in displayTVAcodes(['AAA', 'BBB', 'CCC']):
+    print(i)
+
+#Data format [1,2,3,4,5...]
+def setReductions(reducts):
+    reductions = reducts
+
+def getReductions():
+    return reductions
 
 helloWorld()
 print(calculate_sub_total(askUserToAddPriceAndQuantity()))
+print(helloWorld())

@@ -11,5 +11,15 @@ class Tests(unittest.TestCase):
         line = {"price": 10, "quantity": 2}
         self.assertEqual(app.calculate_sub_total(line), 20)
 
+        self.assertEqual("Hello, World!", app.helloWorld())
+
+    def test_displayTVAcodes(self):
+        TVAcodes = ['AAA','BBB', 'CCC']
+        self.assertEquals(['AAA', 'BBB', 'CCC'], app.displayTVAcodes(TVAcodes))
+
+    def test_11_isAllReductionsCorrectlySet(self):
+        reductions = [3,5,7,10,15]
+        app.setReductions(reductions)
+        self.assertEqual(app.getReductions(),reductions)
 
 unittest.main()
