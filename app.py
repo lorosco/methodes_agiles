@@ -1,5 +1,11 @@
 
 def helloWorld():
-    print("Hello, World!")
+    return "Hello, World!"
 
-helloWorld()
+print(helloWorld())
+
+def displayTVAcodes(listCodes):
+    return listCodes
+
+for i in displayTVAcodes(['AAA', 'BBB', 'CCC']):
+    print(i)
