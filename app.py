@@ -1,4 +1,4 @@
-reductions = []
+reductions = [3,5,7,10,15]
 articles = []
 countryCodeForTva = {'FR': 20, 'GB': 10, 'BE': 12, 'CA': 11, 'BA': 0.5}
 
@@ -24,8 +24,8 @@ def askUserToAddPriceAndQuantity():
 def displayTVAcodes(listCodes):
     return listCodes
 
-for i in displayTVAcodes(['AAA', 'BBB', 'CCC']):
-    print(i)
+for key,value in countryCodeForTva.items():
+    print(key, ' ', value)
 
 def TVAcodeFromCountryCode(countryCode = "None"):
     if(countryCode == "None"):
@@ -56,11 +56,14 @@ def setReductions(reducts):
 def getReductions():
     return reductions
 
-def addArticle(price,qty):
-    articles.append([].append(price,qty))
+def calculate_total(lines):
+    sum = 0
+    for i in lines:
+        sum += calculate_sub_total(i)
+    return sum
 
-def getArticles():
-    return articles
+def addArticle(price,qty):
+    articles.append({"price":price,"quantity":qty})
 
 if __name__ == '__main__':
     helloWorld()

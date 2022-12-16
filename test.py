@@ -17,10 +17,17 @@ class Tests(unittest.TestCase):
         TVAcodes = ['AAA','BBB', 'CCC']
         self.assertEqual(['AAA', 'BBB', 'CCC'], app.displayTVAcodes(TVAcodes))
 
-    #def test_11_isAllReductionsCorrectlySet(self):
-    #    reductions = [3,5,7,10,15]
-    #    app.setReductions(reductions)
-    #    self.assertEqual(app.getReductions(),reductions)
+    def test_calculate_total(self):
+        lines = [{"price": 10, "quantity": 2},{"price": 10, "quantity": 1},{"price": 5, "quantity": 2},{"price": 10, "quantity": 3}]
+        self.assertEqual(app.calculate_total(lines),70)
+
+    def test_11_isAllReductionsCorrectlySet(self):
+        self.assertEqual(app.getReductions(),[3,5,7,10,15])
+
+    def test_3_isAddArticlePossible(self):
+        app.addArticle(13,10)
+        app.addArticle(12,12)
+        self.assertEqual(app.articles,[{"price":13,"quantity":10},{"price":12,"quantity":12}])
 
     #def test_3_isAddArticlePossible(self):
     #    app.addArticle(13,10)
