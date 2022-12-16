@@ -1,6 +1,6 @@
 reductions = []
 articles = []
-countryCodeForTva = {'FR': 'FR-TVA', 'EN': 'EN-TVA', 'BE': 'BE-TVA', 'IT': 'IT-TVA'}
+countryCodeForTva = {'FR': 20, 'GB': 10, 'BE': 12, 'CA': 11, 'BA': 0.5}
 
 def helloWorld():
     return "Hello, World!"
@@ -28,21 +28,32 @@ for i in displayTVAcodes(['AAA', 'BBB', 'CCC']):
     print(i)
 
 def TVAcodeFromCountryCode(countryCode = "None"):
-    print(countryCode)
     if(countryCode == "None"):
-        print("Enter country code (example: FR, EN, BE, IT...)")
-        countryCode = input()
+        countryCode = input("Enter country code (example: FR, EN, BE, IT...)")
     result = countryCodeForTva[countryCode]
     return result
 
+def itemPriceWithTVA(article):
+    TVA = TVAcodeFromCountryCode(article["countryCode"])
+    priceFlat = calculate_sub_total(article)
+    priceWithTaxe = priceFlat + priceFlat*(float(TVA)/100)
+    return priceWithTaxe
+
+def cartPriceWithTVA(articles):
+    total = 0
+    for i in articles:
+        itemPrice = itemPriceWithTVA(i)
+        # itemPrice = i["price"]*i["quantity"]
+        # TVA = TVAcodeFromCountryCode(i["countryCode"])
+        # totalItemPrice = itemPrice + itemPrice*(float(TVA)/100)
+        total += itemPrice
+    return total
+
 #Data format [1,2,3,4,5...]
 def setReductions(reducts):
-    print(reducts)
     reductions = reducts
-    print(reductions)
 
 def getReductions():
-    print(reductions)
     return reductions
 
 def addArticle(price,qty):
