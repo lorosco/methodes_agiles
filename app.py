@@ -1,6 +1,12 @@
+## Models
+
+## Data
+
 reductions = [3,5,7,10,15]
 articles = []
-countryCodeForTva = {'FR': 20, 'GB': 10, 'BE': 12, 'CA': 11, 'BA': 0.5}
+COUNTRY_CODE_FOR_TVA = {'FR': 20, 'GB': 10, 'BE': 12, 'CA': 11, 'BA': 0.5}
+
+## Functions
 
 def helloWorld():
     return "Hello, World!"
@@ -21,16 +27,15 @@ def askUserToAddPriceAndQuantity():
             break
     return {'price': float(price), 'quantity': float(quantity)}
 
-def displayTVAcodes(listCodes):
-    return listCodes
-
-for key,value in countryCodeForTva.items():
-    print(key, ' ', value)
+def displayTVAcodes(countryCodeForTva):
+    for key,value in countryCodeForTva.items():
+        print(key, ' ', value, "%")
+    return countryCodeForTva
 
 def TVAcodeFromCountryCode(countryCode = "None"):
     if(countryCode == "None"):
-        countryCode = input("Enter country code (example: FR, EN, BE, IT...)")
-    result = countryCodeForTva[countryCode]
+        countryCode = input("Enter country code: ")
+    result = COUNTRY_CODE_FOR_TVA[countryCode]
     return result
 
 def itemPriceWithTVA(article):
@@ -65,9 +70,12 @@ def calculate_total(lines):
 def addArticle(price,qty):
     articles.append({"price":price,"quantity":qty})
 
+## Main
+
 if __name__ == '__main__':
-    helloWorld()
-    print(calculate_sub_total(askUserToAddPriceAndQuantity()))
     print(helloWorld())
+    print("There you can find available country codes for VAT:")
+    displayTVAcodes(COUNTRY_CODE_FOR_TVA)
     print(TVAcodeFromCountryCode())
+    print(calculate_sub_total(askUserToAddPriceAndQuantity())," without taxes")
 
