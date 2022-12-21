@@ -1,6 +1,8 @@
 # methodes_agiles
 Réalisation du projet sur les tickets de caisse groupe B
 
+Les User Stories et leurs critères d'acceptations sont dans le pdf nommé "US_&_ACCEPTATION"
+
 ## User stories et itération durant lesquelles elles ont été achevées
 
 | User Stories | #1   |#6 |#11 |  #2 | #4 | #5 | #9 | 
