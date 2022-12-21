@@ -55,6 +55,13 @@ class Tests(unittest.TestCase):
         self.assertEqual(app.TVAcodeFromCountryCode("CA"), 11)
         self.assertEqual(app.TVAcodeFromCountryCode("BA"), 0.5)
 
+    def test_9_getReduction(self):
+        totalHT = app.calculate_sub_total({'price': 10, 'quantity': 1})
+        TVA = app.TVAcodeFromCountryCode("FR")
+        priceTTC= totalHT + (totalHT*0.2)
+        computedPrice = app.cartPriceWithTVA(totalHT,tva=TVA)
+        self.assertEqual(0.0, app.getReduction(computedPrice))
+
     
 
 unittest.main()

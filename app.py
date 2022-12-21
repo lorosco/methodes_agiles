@@ -75,7 +75,9 @@ def calculate_total(lines):
         sum += calculate_sub_total(i)
     return sum
 
-
+def getReduction(price):
+   
+    return (price*(currentReduc/100))
 
 # def addArticle(price,qty):
     # articles.append({"price":price,"quantity":qty})
@@ -91,6 +93,6 @@ if __name__ == '__main__':
     print(calculate_sub_total(askUserToAddPriceAndQuantity())," without taxes")
     print("TVA: ",TVAcodeFromCountryCode(),"%")
     print(cartPriceWithTVA(priceHT,tva=currentTVA), "TTC")
-    # print("reduction: ",getReduction(cartPriceWithTVA(priceHT,currentTVA)))
+    print("reduction: ",getReduction(cartPriceWithTVA(priceHT,tva=currentTVA)))
     
 
